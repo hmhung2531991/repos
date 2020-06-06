@@ -2,7 +2,7 @@ package com.line.test
 
 import org.json.JSONObject
 
-object VideoUtils {
+object MovieUtils {
 
     private val VIDEO_DATA: String = "{\n" +
             "    \"title\" : \"Civil War\",\n" +
@@ -13,7 +13,7 @@ object VideoUtils {
             "    ]\n" +
             "}"
 
-    fun readVideo(): Video {
+    fun readMovie(): Movie {
         val videoObject = JSONObject(VIDEO_DATA)
         val title = videoObject.getString("title")
         val imageObjects = videoObject.getJSONArray("image")
@@ -23,7 +23,7 @@ object VideoUtils {
             images.add(url)
         }
 
-        return Video(title, images)
+        return Movie(title, images)
     }
 
 }

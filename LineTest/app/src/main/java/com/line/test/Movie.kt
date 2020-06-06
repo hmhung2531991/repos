@@ -1,6 +1,6 @@
 package com.line.test
 
-data class Video constructor(
+data class Movie constructor(
     val title: String,
     val image: List<String>
 )
