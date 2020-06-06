@@ -10,16 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MovieAdapter constructor(
     private val context: Context,
+    private val imageLoader: ImageLoader,
     private val images: List<String>
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
-
 
     // inflates the row layout from xml when needed
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.movie_video, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false)
         return ViewHolder(view)
     }
 
@@ -29,6 +29,7 @@ class MovieAdapter constructor(
         position: Int
     ) {
         val url = images[position]
+        imageLoader.displayImage(url, holder.ivVideo, holder.tvProgress)
     }
 
     // total number of rows
